@@ -1,52 +1,79 @@
+<div class="nav-container" [class.nav-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="nav-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="fill-rest"></span>
+    <button mat-raised-button routerLink="sign-up">
+      Sign Up
+    </button>
+    <button mat-flat-button routerLink="buyer" *ngIf="!mobileQuery.matches">
+      Buyer
+    </button>
+    <button mat-flat-button routerLink="agent" *ngIf="!mobileQuery.matches">
+      Agent
+    </button>
+  </mat-toolbar>
 
-<app-nav></app-nav>
-<div class="text-center">
-  <img width="300" alt="Propify Logo" src="../assets/logo.jpg">
-</div>
-<div class=" container text-left mt-5">
-  <h3>How it works</h3>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam placerat sit amet quam in auctor. Interdum et malesuada fames
-    ac ante ipsum primis in faucibus. Sed elementum molestie interdum. Morbi dapibus finibus condimentum. Pellentesque habitant
-    morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus faucibus eros nisl, ac fringilla est
-    viverra nec. Quisque sed placerat sapien, quis vestibulum dui. Nulla facilisi. Vestibulum urna lacus, volutpat non dolor
-    nec, malesuada vestibulum risus. Aliquam posuere sapien quis pharetra placerat. Fusce elit metus, accumsan eget pulvinar
-    quis, malesuada vitae justo. Vivamus iaculis enim vitae augue dapibus, id hendrerit nibh tincidunt.
-  </p>
-  <p>
-    Donec quis erat vel augue pharetra vulputate. Fusce a venenatis ante, ut fermentum mauris. Phasellus placerat nisl non auctor
-    tristique. Ut pharetra augue sed erat vehicula, ut sagittis sem aliquet. Proin interdum erat sed turpis gravida, ut lobortis
-    libero gravida. In massa sem, pretium id sodales scelerisque, condimentum sed dui. Donec sit amet vehicula elit, sed
-    consequat turpis. Suspendisse accumsan bibendum neque, nec semper nunc sollicitudin quis. Maecenas gravida accumsan mi,
-    quis viverra eros maximus nec. Nam aliquam sapien vitae leo hendrerit porta. Fusce commodo tristique felis. Duis tortor
-    nisi, consequat sit amet sagittis eu, volutpat at lectus. Maecenas sit amet sapien libero. Aenean fringilla, leo non
-    tincidunt pellentesque, ligula ipsum laoreet velit, non dapibus orci ex quis ligula. Vestibulum ultricies, dui vel pretium
-    blandit, lectus lacus facilisis massa, ac tristique ex eros ac ipsum.
+  <mat-sidenav-container class="nav-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list>
+        <a mat-list-item routerLink="buyer" *ngIf="mobileQuery.matches">
+          <span>Buyer</span>
+          <span class="fill-rest"></span>
+          <mat-icon>people</mat-icon>
+        </a>
+        <a mat-list-item routerLink="agent" *ngIf="mobileQuery.matches">
+          <span>Agent</span>
+          <span class="fill-rest"></span>
+          <mat-icon>verified_user</mat-icon>
+        </a>
+        <mat-divider *ngIf="mobileQuery.matches"></mat-divider>
+        <a class="text-right" mat-list-item routerLink="how-it-works">
+          <span>How it works</span>
+          <span class="fill-rest"></span>
+          <mat-icon>slideshow</mat-icon>
+        </a>
+        <mat-divider [inset]="true"></mat-divider>
+        <a mat-list-item routerLink="contact-us">
+          <span>Contact us</span>
+          <span class="fill-rest"></span>
+          <mat-icon>phone_in_talk</mat-icon>
+        </a>
+        <a mat-list-item (click)="snav.toggle()">
+          <span>Close</span>
+          <span class="fill-rest"></span>
+          <mat-icon>close</mat-icon>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
 
-  </p>
-  <p>
-    Etiam a elit purus. Aliquam id blandit dolor. Ut odio arcu, bibendum ac tempus id, tincidunt at diam. Ut faucibus massa vitae
-    tellus sollicitudin facilisis. Integer condimentum viverra libero ac facilisis. Maecenas consectetur nisi vitae eleifend
-    pellentesque. Quisque quis maximus massa. Nunc volutpat orci et rhoncus mollis. In sollicitudin ultrices augue non gravida.
-    Nam placerat nec velit id interdum. Mauris nisl ante, accumsan sit amet aliquet at, congue ut dui. Curabitur non leo
-    nec ipsum ullamcorper vestibulum. Duis tincidunt viverra sem.
-
-  </p>
-  <p>
-    Nunc enim odio, fringilla quis sapien a, tincidunt ornare urna. Etiam placerat ipsum eget magna rhoncus hendrerit. Proin
-    placerat mattis turpis, eu tempor metus volutpat at. Cras quis nulla elit. Proin eu porta mauris. Sed quis urna non ex
-    rutrum interdum in aliquam arcu. Maecenas vehicula elit tellus, eu faucibus arcu fringilla eget. Pellentesque pellentesque
-    ante id turpis sagittis, at luctus nulla blandit. Sed euismod dapibus turpis ultrices bibendum. Cras at dignissim enim,
-    tempus molestie tellus. Duis sagittis justo et dui pellentesque eleifend. Maecenas diam dolor, faucibus in laoreet at,
-    egestas quis libero.
-
-  </p>
-  <p>
-    Fusce consectetur auctor consectetur. Donec lacinia et ex non bibendum. Vivamus scelerisque metus non molestie consequat.
-    Nam bibendum neque nisi, consequat facilisis enim ultricies et. Aliquam et libero in turpis pharetra tristique in vel
-    lacus. Suspendisse sit amet nulla et augue varius fermentum lacinia id erat. In eget lobortis ante. Integer vestibulum
-    mattis lectus egestas lacinia. Sed fermentum, metus in egestas sagittis, purus orci blandit est, id consectetur est dui
-    ut tellus.
-
-  </p>
+    <mat-sidenav-content>
+      <div class="text-center">
+        <img width="300px" alt="Propify Logo" src="../assets/logo.jpg">
+      </div>
+      <div class="container text-left mt-5" [class.text-center]="mobileQuery.matches">
+        <h3>How it works</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam placerat sit amet quam in auctor. Interdum et malesuada fames
+          ac ante ipsum primis in faucibus. Sed elementum molestie interdum. Morbi dapibus finibus condimentum. Pellentesque
+          habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus faucibus eros nisl, ac
+          fringilla est viverra nec. Quisque sed placerat sapien, quis vestibulum dui. Nulla facilisi. Vestibulum urna lacus,
+          volutpat non dolor nec, malesuada vestibulum risus. Aliquam posuere sapien quis pharetra placerat. Fusce elit metus,
+          accumsan eget pulvinar quis, malesuada vitae justo. Vivamus iaculis enim vitae augue dapibus, id hendrerit nibh
+          tincidunt.
+        </p>
+        <p>
+          Donec quis erat vel augue pharetra vulputate. Fusce a venenatis ante, ut fermentum mauris. Phasellus placerat nisl non auctor
+          tristique. Ut pharetra augue sed erat vehicula, ut sagittis sem aliquet. Proin interdum erat sed turpis gravida,
+          ut lobortis libero gravida. In massa sem, pretium id sodales scelerisque, condimentum sed dui. Donec sit amet vehicula
+          elit, sed consequat turpis. Suspendisse accumsan bibendum neque, nec semper nunc sollicitudin quis. Maecenas gravida
+          accumsan mi, quis viverra eros maximus nec. Nam aliquam sapien vitae leo hendrerit porta. Fusce commodo tristique
+          felis. Duis tortor nisi, consequat sit amet sagittis eu, volutpat at lectus. Maecenas sit amet sapien libero. Aenean
+          fringilla, leo non tincidunt pellentesque, ligula ipsum laoreet velit, non dapibus orci ex quis ligula. Vestibulum
+          ultricies, dui vel pretium blandit, lectus lacus facilisis massa, ac tristique ex eros ac ipsum.
+        </p>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>

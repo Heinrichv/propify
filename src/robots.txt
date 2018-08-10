@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://www.propify.co.za/sitemap.txt

@@ -1,21 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import 'hammerjs';
 
 import { AppComponent } from './app.component';
-import { NavComponent } from './nav/nav.component';
 import { LoggedoutComponent } from './loggedout/loggedout.component';
 import { LoggedinComponent } from './loggedin/loggedin.component';
+import { MaterialModule } from './material/material.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent,
     LoggedoutComponent,
     LoggedinComponent
   ],
   imports: [
     BrowserModule,
+    MaterialModule,
     RouterModule,
     RouterModule.forRoot([
       { path: 'home', component: AppComponent },
@@ -28,4 +30,5 @@ import { LoggedinComponent } from './loggedin/loggedin.component';
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
