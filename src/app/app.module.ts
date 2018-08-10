@@ -7,13 +7,23 @@ import { AppComponent } from './app.component';
 import { LoggedoutComponent } from './loggedout/loggedout.component';
 import { LoggedinComponent } from './loggedin/loggedin.component';
 import { MaterialModule } from './material/material.module';
+import { HowitworksComponent } from './howitworks/howitworks.component';
+import { ContactComponent } from './contact/contact.component';
+import { SignupComponent } from './signup/signup.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoggedoutComponent,
-    LoggedinComponent
+    LoggedinComponent,
+    HowitworksComponent,
+    ContactComponent,
+    SignupComponent,
+    NotFoundComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -21,10 +31,13 @@ import { MaterialModule } from './material/material.module';
     RouterModule,
     RouterModule.forRoot([
       { path: 'home', component: AppComponent },
-      { path: 'how-it-works', component: AppComponent },
-      { path: 'contact-us', component: AppComponent },
-      { path: 'sign-up', component: AppComponent },
-      { path: '*', component: AppComponent }
+      { path: 'how-it-works', component: HowitworksComponent },
+      { path: 'contact-us', component: ContactComponent },
+      { path: 'sign-up', component: SignupComponent },
+      { path: 'buyer', component: LoginComponent },
+      { path: 'agent', component: LoginComponent },
+      {path: '404', component: NotFoundComponent},
+      {path: '**', redirectTo: '/404'}
     ])
   ],
   providers: [],
