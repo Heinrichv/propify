@@ -19,15 +19,4 @@ self.addEventListener('fetch', function (event) {
     event.respondWith(fetch(event.request));
     return;
   }
-
-});
-
-self.addEventListener("beforeinstallprompt", event => {
-	event.preventDefault();
-	installButton.disabled = false;
-	installButton.addEventListener("click", async e => {
-    installButton.disabled = true;
-    const { userChoice } = await event.prompt();
-    console.info(`user choice was: ${userChoice}`);
-  });
 });
