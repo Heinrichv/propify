@@ -2,35 +2,34 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { MaterialModule } from './material.module';
+import { LoggedinModule } from './loggedin/loggedin.module';
+import { SharedModule } from './shared/shared.module';
+import { LoggedoutModule } from './loggedout/loggedout.module';
+
 import 'hammerjs';
 
-import { AppComponent } from './app.component';
-import { LoggedoutComponent } from './loggedout/loggedout.component';
-import { LoggedinComponent } from './loggedin/loggedin.component';
-import { MaterialModule } from './material/material.module';
-import { HowitworksComponent } from './howitworks/howitworks.component';
-import { ContactComponent } from './contact/contact.component';
-import { SignupComponent } from './signup/signup.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { LoginComponent } from './login/login.component';
-import { MainComponent } from './main/main.component';
+// Required for routing
+import { MainComponent } from './shared/main/main.component';
+import { ContactComponent } from './shared/contact/contact.component';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { HowitworksComponent } from './loggedout/howitworks/howitworks.component';
+import { SignupComponent } from './loggedout/signup/signup.component';
+import { LoginComponent } from './loggedout/login/login.component';
 
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoggedoutComponent,
-    LoggedinComponent,
-    HowitworksComponent,
-    ContactComponent,
-    SignupComponent,
-    NotFoundComponent,
-    LoginComponent,
-    MainComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     MaterialModule,
+    LoggedoutModule,
+    LoggedinModule,
+    SharedModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
