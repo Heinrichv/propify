@@ -13,6 +13,7 @@ import { ContactComponent } from './contact/contact.component';
 import { SignupComponent } from './signup/signup.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './login/login.component';
+import { MainComponent } from './main/main.component';
 
 
 @NgModule({
@@ -24,23 +25,24 @@ import { LoginComponent } from './login/login.component';
     ContactComponent,
     SignupComponent,
     NotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
     MaterialModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule,
     RouterModule,
     RouterModule.forRoot([
-      { path: 'home', component: AppComponent },
+      { path: 'home', component: MainComponent },
       { path: 'how-it-works', component: HowitworksComponent },
       { path: 'contact-us', component: ContactComponent },
       { path: 'sign-up', component: SignupComponent },
       { path: 'buyer', component: LoginComponent },
       { path: 'agent', component: LoginComponent },
       {path: '404', component: NotFoundComponent},
-      {path: '**', redirectTo: '/404'}
+      {path: '**', redirectTo: '/home'}
     ])
   ],
   providers: [],

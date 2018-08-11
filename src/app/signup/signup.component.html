@@ -1,16 +1,25 @@
-<div class="text-left" *ngIf="!isLoading">
-  <mat-vertical-stepper [linear]="false" #stepper>
-    <mat-step [stepControl]="PersonalForm">
-      <form [formGroup]="PersonalForm">
+<div class="text-left">
+  <mat-vertical-stepper [linear]="true" #stepper>
+    <mat-step [stepControl]="personalForm">
+      <form [formGroup]="personalForm">
         <ng-template matStepLabel>Personal Details</ng-template>
-        <mat-form-field>
-          <input matInput type="text" autocomplete="off" placeholder="First Name" formControlName="fname" required>
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput type="text" autocomplete="off" placeholder="Last Name" formControlName="lname" required>
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperNext>Next</button>
+        <div class="mt-3">
+          <mat-checkbox (click)="agentClick()">Are you an agent ?</mat-checkbox>
+          <br>
+          <mat-form-field>
+            <input matInput type="text" autocomplete="off" placeholder="First Name" formControlName="fname" required>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput type="text" autocomplete="off" placeholder="Last Name" formControlName="lname" required>
+          </mat-form-field>
+          <br>
+          <mat-form-field *ngIf="isAgent">
+            <input matInput type="text" autocomplete="off" placeholder="Company" formControlName="company" [attr.required]="isAgent">
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
         </div>
       </form>
     </mat-step>
@@ -20,6 +29,7 @@
         <mat-form-field>
           <input matInput placeholder="Email Address" type="email" formControlName="email" required>
         </mat-form-field>
+        <br>
         <mat-form-field>
           <input matInput placeholder="Mobile Number" type="tel" formControlName="mobile" required>
         </mat-form-field>
@@ -35,12 +45,13 @@
         <mat-form-field>
           <input matInput placeholder="Username" type="text" formControlName="loginName" required>
         </mat-form-field>
+        <br>
         <mat-form-field>
           <input matInput placeholder="Password" type="password" formControlName="password" required>
         </mat-form-field>
         <div>
           <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Submit</button>
+          <button mat-button matStepperNext (click)="submitForm()">Submit</button>
         </div>
       </form>
     </mat-step>

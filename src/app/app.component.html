@@ -49,10 +49,7 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <div class="text-center">
-        <img width="300px" alt="Propify Logo" src="../assets/logo.jpg">
-      </div>
-      <div class="container text-left mt-5" [class.text-center]="mobileQuery.matches">
+      <div class="container mt-5" [class.text-center]="mobileQuery.matches" [class.text-left]="!mobileQuery.matches">
         <router-outlet></router-outlet>
       </div>
     </mat-sidenav-content>
